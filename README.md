@@ -6,6 +6,6 @@ Typeclass in C#
 ## How to Use
 
 ```
-$ mcs typeclass.cs
+$ mcs -out:typeclass.exe src/*.cs
 $ mono typeclass.exe
 ```
