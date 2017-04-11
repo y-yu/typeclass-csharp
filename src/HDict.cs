@@ -51,7 +51,7 @@ namespace Typeclass.HDict
             }
             else
             {
-                v = new R().Get(key);
+                v = new R().Default(key);
                 dict.__Add(key, v);
                 return v;
             }

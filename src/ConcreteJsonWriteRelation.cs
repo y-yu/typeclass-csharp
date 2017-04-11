@@ -6,22 +6,22 @@ namespace Typeclass
             Relation<Type<ListType>, JsonWrite1<ListType, ConcreteJsonWriteRelation>>,
             Relation<Type<MyStruct>, JsonWrite0<MyStruct, ConcreteJsonWriteRelation>>
     {
-        public JsonWrite0<int, ConcreteJsonWriteRelation> Get(Type<int> key)
+        public JsonWrite0<int, ConcreteJsonWriteRelation> Default(Type<int> key)
         {
             return new IntJsonWrite<ConcreteJsonWriteRelation>();
         }
      
-        public JsonWrite0<bool, ConcreteJsonWriteRelation> Get(Type<bool> key)
+        public JsonWrite0<bool, ConcreteJsonWriteRelation> Default(Type<bool> key)
         {
             return new BoolJsonWrite<ConcreteJsonWriteRelation>();
         }
      
-        public JsonWrite1<ListType, ConcreteJsonWriteRelation> Get(Type<ListType> key)
+        public JsonWrite1<ListType, ConcreteJsonWriteRelation> Default(Type<ListType> key)
         {
             return new ListTypeJsonWrite<ConcreteJsonWriteRelation>();
         }
      
-        public JsonWrite0<MyStruct, ConcreteJsonWriteRelation> Get(Type<MyStruct> key)
+        public JsonWrite0<MyStruct, ConcreteJsonWriteRelation> Default(Type<MyStruct> key)
         {
             return new MyStructJsonWrite<ConcreteJsonWriteRelation>();
         }
