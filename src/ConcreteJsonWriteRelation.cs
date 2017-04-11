@@ -1,27 +1,27 @@
 namespace Typeclass
 {
     public class ConcreteJsonWriteRelation :
-            Relation<Type<int>, IntJsonWrite<ConcreteJsonWriteRelation>>,
-            Relation<Type<bool>, BoolJsonWrite<ConcreteJsonWriteRelation>>,
-            Relation<Type<ListType>, ListTypeJsonWrite<ConcreteJsonWriteRelation>>,
-            Relation<Type<MyStruct>, MyStructJsonWrite<ConcreteJsonWriteRelation>>
+            Relation<Type<int>, JsonWrite0<int, ConcreteJsonWriteRelation>>,
+            Relation<Type<bool>, JsonWrite0<bool, ConcreteJsonWriteRelation>>,
+            Relation<Type<ListType>, JsonWrite1<ListType, ConcreteJsonWriteRelation>>,
+            Relation<Type<MyStruct>, JsonWrite0<MyStruct, ConcreteJsonWriteRelation>>
     {
-        public IntJsonWrite<ConcreteJsonWriteRelation> Get(Type<int> key)
+        public JsonWrite0<int, ConcreteJsonWriteRelation> Get(Type<int> key)
         {
             return new IntJsonWrite<ConcreteJsonWriteRelation>();
         }
      
-        public BoolJsonWrite<ConcreteJsonWriteRelation> Get(Type<bool> key)
+        public JsonWrite0<bool, ConcreteJsonWriteRelation> Get(Type<bool> key)
         {
             return new BoolJsonWrite<ConcreteJsonWriteRelation>();
         }
      
-        public ListTypeJsonWrite<ConcreteJsonWriteRelation> Get(Type<ListType> key)
+        public JsonWrite1<ListType, ConcreteJsonWriteRelation> Get(Type<ListType> key)
         {
             return new ListTypeJsonWrite<ConcreteJsonWriteRelation>();
         }
      
-        public MyStructJsonWrite<ConcreteJsonWriteRelation> Get(Type<MyStruct> key)
+        public JsonWrite0<MyStruct, ConcreteJsonWriteRelation> Get(Type<MyStruct> key)
         {
             return new MyStructJsonWrite<ConcreteJsonWriteRelation>();
         }

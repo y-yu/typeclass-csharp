@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Typeclass
+namespace Typeclass.HDict
 {    
     public class HDict<T> where T : Relation
     {
@@ -13,7 +13,7 @@ namespace Typeclass
          
         public HDict() : this(new Dictionary<object, object>()) { }
          
-        internal bool TryGetValue<K, V>(K key, out V value)
+        internal bool __TryGetValue<K, V>(K key, out V value)
         {
             object v;
             if (underlying.TryGetValue(key, out v))
@@ -28,7 +28,7 @@ namespace Typeclass
             }
         }
          
-        internal HDict<T> Add<K, V>(K key, V value)
+        internal HDict<T> __Add<K, V>(K key, V value)
         {
             var dict = new Dictionary<object, object>(underlying);
             if (dict.ContainsKey(key))
@@ -45,28 +45,21 @@ namespace Typeclass
         public static V Get<R, K, V>(this HDict<R> dict, K key) where R : Relation<K, V>, new()
         {
             V v;
-            if (dict.TryGetValue(key, out v))
+            if (dict.__TryGetValue(key, out v))
             {
                 return v;
             }
             else
             {
                 v = new R().Get(key);
-                dict.Add(key, v);
+                dict.__Add(key, v);
                 return v;
             }
         }
 
-        /*        
-        public static bool TryGetValue<T, K, V>(this HDict<T> dict, K key, out V value) where T : Relation<K, V>
+        public static HDict<R> Add<R, K, V>(this HDict<R> dict, K key, V value) where R : Relation<K, V>
         {
-            return dict.TryGetValue(key, out value);
+            return dict.__Add(key, value);
         }
-
-        public static HDict<T> Add<T, K, V>(this HDict<T> dict, K key, V value) where T : Relation<K, V>
-        {
-            return dict.Add(key, value);
-        }
-        */
     }
 }

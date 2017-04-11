@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Typeclass.HDict;
 
 namespace Typeclass
 {
@@ -8,6 +9,14 @@ namespace Typeclass
         public string ToJsonString(int obj, HDict<R> dict)
         {
             return obj.ToString();
+        }
+    }
+
+    public class IntJsonWrite2<R> : JsonWrite0<int, R> where R : Relation
+    {
+        public string ToJsonString(int obj, HDict<R> dict)
+        {
+            return "{" + obj.ToString() + "}";
         }
     }
      
