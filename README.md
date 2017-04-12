@@ -1,4 +1,4 @@
-Typeclass in C#
+Poorer Man's Typeclass in C#
 ==================
 
 [![Build Status](https://travis-ci.org/y-yu/typeclass-csharp.svg?branch=master)](https://travis-ci.org/y-yu/typeclass-csharp)
